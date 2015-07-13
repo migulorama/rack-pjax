@@ -19,7 +19,7 @@ module Rack
         b.force_encoding('UTF-8') if RUBY_VERSION > '1.9.0'
 
         parsed_body = Nokogiri::HTML(b)
-        container = parsed_body.at(container_selector(env))
+        container = parsed_body.css(container_selector(env))
 
         new_body << begin
           if container
